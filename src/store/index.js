@@ -60,6 +60,16 @@ export default new Vuex.Store({
                 console.error(error, 'getBoards Failing')
             }
         },
+        async getBoard({ commit, dispatch }, boardId) {
+            try {
+                let res = await api.get(`boards/${boardId}`)
+                console.log('activeBlog', res.data);
+                commit('setActiveBoard', res.data)
+            } catch (error) {
+                console.error(error)
+            }
+        },
+
         async addBoard({ commit, dispatch }, boardData) {
             try {
                 let res = await api.post('boards', boardData)
