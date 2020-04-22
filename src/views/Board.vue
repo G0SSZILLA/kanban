@@ -1,5 +1,10 @@
 <template>
   <div class="board">
+    <button
+              v-if="$auth.isAuthenticated"
+              class="btn btn-danger shadow"
+              @click="deleteBoard()"
+            >Delete</button>
     <h1 v-if="board.title">{{board.title}}</h1>
     
   </div>
@@ -14,9 +19,14 @@ this.$store.dispatch('getBoard', this.$route.params.boardId)
     },
   computed: {
     board() {
-      //FIXME This does not work on page reload because the activeBoard is empty in the store
       return this.$store.state.activeBoard;
     }
+  },
+  methods: {
+    deleteBoard(){
+      this.$store.dispatch("deleteBoard", this.$route.params.boardId)
+      this.$router.push({name: 'boards'})
+    },
   },
 };
 </script>

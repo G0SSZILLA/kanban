@@ -7,12 +7,13 @@
         <input type="text" placeholder="description" v-model="newBoard.description" />
         <button type="submit">Create Board</button>
       </form>
-    </div>-->
+    </div> -->
     <div class="row">
       <CreateBoard v-if="$auth.isAuthenticated" />
       <small class="text-danger" v-else>You must log in to create a board!</small>
     </div>
     <div class="row m-auto">
+       
       <board v-for="board in boards" :boardData="board" :key="board.id" />
       <!-- NOTE old way of loading boards 
       <router-link :to="{name: 'board', params: {boardId: board.id}}">{{board.title}}</router-link>-->
@@ -41,7 +42,9 @@ export default {
       return this.$store.state.boards;
     }
   },
-  methods: {},
+  methods: {
+    
+  },
   components: {
     Board,
     CreateBoard

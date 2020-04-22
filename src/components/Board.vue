@@ -3,6 +3,7 @@
     <div class="m-auto pt-5" @click="selectBoard()">
       <!-- Card -->
       <div class="card card-image shadow">
+      
         <!-- style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);" -->
         <div class="text-black text-center align-items-center rgba-black-strong py-5 px-4">
           <div>
@@ -34,7 +35,8 @@ export default {
         name: "board",
         params: { boardId: this.boardData._id }
       });
-    }
+    },
+    
   },
   components: {}
 };
