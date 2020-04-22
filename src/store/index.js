@@ -94,6 +94,14 @@ export default new Vuex.Store({
                 console.error(error, 'deleteBoard Failing');
             }
         },
+        async editBoard({ dispatch }, board) {
+            try {
+                await api.put('boards/' + board._id, board)
+                dispatch('getBoard', board._id)
+            } catch (error) {
+                console.error(error, 'editBoard is Failing');
+            }
+        },
         //#endregion
 
         //#region -- LISTS --
